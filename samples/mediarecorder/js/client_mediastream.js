@@ -159,3 +159,14 @@ btnPlay.onclick = () => {
     recvideo.controls = true;
     recvideo.play();
 }
+
+btnDownload.onclick = () => {
+    var blob = new Blob(buffer, {type: 'video/webm'});
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement('a');
+
+    a.href = url;
+    a.style.display = 'none';
+    a.download = 'youwzhen.webm';
+    a.click();
+}
