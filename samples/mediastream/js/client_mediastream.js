@@ -14,10 +14,12 @@ var picture = document.querySelector('canvas#picture');
 picture.width = 320;
 picture.height = 240;
 
-var videoplay = document.querySelector('video#player');
+// var videoplay = document.querySelector('video#player');
+var audioplay = document.querySelector('audio#audioplayer');
 
 function gotMediaStream(stream) {
-    videoplay.srcObject = stream;
+    //videoplay.srcObject = stream;
+    audioplay.srcObject = stream;
     return navigator.mediaDevices.enumerateDevices();
 }
 function gotDevices(deviceInfos) {
