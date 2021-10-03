@@ -14,12 +14,19 @@ var picture = document.querySelector('canvas#picture');
 picture.width = 320;
 picture.height = 240;
 
-// var videoplay = document.querySelector('video#player');
-var audioplay = document.querySelector('audio#audioplayer');
+var videoplay = document.querySelector('video#player');
+// var audioplay = document.querySelector('audio#audioplayer');
+
+var divConstraints = document.querySelector('div#constraints');
 
 function gotMediaStream(stream) {
-    //videoplay.srcObject = stream;
-    audioplay.srcObject = stream;
+    videoplay.srcObject = stream;
+    // audioplay.srcObject = stream;
+
+    var videoTrack = stream.getVideoTracks()[0];
+    var videoConstraints = videoTrack.getSettings();
+    divConstraints.textContent = JSON.stringify(videoConstraints, null, 2);
+
     return navigator.mediaDevices.enumerateDevices();
 }
 function gotDevices(deviceInfos) {
