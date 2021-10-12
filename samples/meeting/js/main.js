@@ -100,7 +100,7 @@ function getRemoteStream(e){
 function createPeerConnection() {
     console.log('create RTCPeerConnection!');
     if (!pc) {
-        // 没有就创建一个
+        // If do not have a peer connection, create one
         var pcConfig = {
             'iceServers': [{
                 'urls': 'turn:49.235.113.88:3478',
